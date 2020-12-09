@@ -1,16 +1,14 @@
 #nstabel
 
-move = {
-	'F': lambda loc: -(loc['F'] - loc['B'] + 1) // 2,
-	'B': lambda loc: (loc['F'] - loc['B'] + 1) // 2,
-	'L': lambda loc: -(loc['L'] - loc['R'] + 1) // 2,
-	'R': lambda loc: (loc['L'] - loc['R'] + 1) // 2}
-
 def get_seat(boarding):
-	loc = {'B': 0, 'F': 127, 'R': 0, 'L': 7}
+	loc = {
+		'F': [127, lambda loc: -(loc['F'][0] - loc['B'][0] + 1) // 2],
+		'B': [0, lambda loc: (loc['F'][0] - loc['B'][0] + 1) // 2],
+		'L': [7, lambda loc: -(loc['L'][0] - loc['R'][0] + 1) // 2],
+		'R': [0, lambda loc: (loc['L'][0] - loc['R'][0] + 1) // 2]}
 	for c in boarding[:-1]:
-		loc[c] += move[c](loc)
-	return loc['B'] * 8 + loc['R']
+		loc[c][0] += loc[c][1](loc)
+	return loc['B'][0] * 8 + loc['R'][0]
 		
 seats = [get_seat(boarding) for boarding in open('input', 'r').readlines()]
 [print(id) for id in range(max(seats)) if all([
