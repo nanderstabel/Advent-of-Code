@@ -1,5 +1,4 @@
 #nstabel	
-
 from itertools import combinations
 
 input = [int(num) for num in open('input', 'r').readlines()]
