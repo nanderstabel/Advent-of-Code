@@ -1,4 +1,4 @@
 #nstabel
 
 input = [int(num) for num in open('input', 'r').readlines()]
-print([x * y for x in input for y in input if x + y == 2020][0])
+print([i * j for i in input for j in input if i + j == 2020][0])
