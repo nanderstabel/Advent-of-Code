@@ -1,4 +1,6 @@
 #nstabel
+from itertools import combinations
+from numpy import prod
 
 input = [int(num) for num in open('input', 'r').readlines()]
-print([i * j for i in input for j in input if i + j == 2020][0])
+[print(prod(comb)) for comb in combinations(input, 2) if sum(comb) == 2020]
