@@ -3,7 +3,7 @@ from re import match
 
 required = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
 count = 0
-for passport in open('input', 'r').read().split('\n\n'):
+for passport in open('input').read().split('\n\n'):
 	fields = dict([field.split(':') for field in passport.split()])
 	if all(field in fields for field in required):
 		if all([

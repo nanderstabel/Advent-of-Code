@@ -10,4 +10,4 @@ def get_seat(boarding):
 		loc[c][0] += loc[c][1](loc)
 	return loc['B'][0] * 8 + loc['R'][0]
 		
-print(max([get_seat(boarding) for boarding in open('input', 'r').readlines()]))
+print(max([get_seat(boarding) for boarding in open('input').readlines()]))

@@ -1,6 +1,6 @@
 #nstabel	
 
-forest = open('input', 'r').read().split('\n')
+forest = open('input').read().split('\n')
 x, count = 0, 0
 width = len(forest[0])
 for y in range(len(forest)):

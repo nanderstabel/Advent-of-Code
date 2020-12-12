@@ -10,7 +10,7 @@ def get_seat(boarding):
 		loc[c][0] += loc[c][1](loc)
 	return loc['B'][0] * 8 + loc['R'][0]
 		
-seats = [get_seat(boarding) for boarding in open('input', 'r').readlines()]
+seats = [get_seat(boarding) for boarding in open('input').readlines()]
 [print(id) for id in range(max(seats)) if all([
 											id not in seats,
 											id - 1 in seats,
